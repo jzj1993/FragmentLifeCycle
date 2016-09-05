@@ -121,10 +121,10 @@ public class BaseVisibilityFragment extends Fragment implements View.OnAttachSta
     /**
      * 检查可见性是否变化
      *
-     * @param dest 可见性可能的值
+     * @param expected 可见性期望的值。只有当前值和expected不同，才需要做判断
      */
-    private void checkVisibility(boolean dest) {
-        if (dest == mVisible) return;
+    private void checkVisibility(boolean expected) {
+        if (expected == mVisible) return;
         final boolean parentVisible = mParentFragment == null ? mParentActivityVisible : mParentFragment.isFragmentVisible();
         final boolean superVisible = super.isVisible();
         final boolean hintVisible = getUserVisibleHint();
