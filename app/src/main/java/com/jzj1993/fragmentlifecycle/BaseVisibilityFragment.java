@@ -43,8 +43,12 @@ public class BaseVisibilityFragment extends Fragment implements View.OnAttachSta
     @Override
     public void onDetach() {
         info("onDetach");
+        if (mParentFragment != null) {
+            mParentFragment.setOnVisibilityChangedListener(null);
+        }
         super.onDetach();
         checkVisibility(false);
+        mParentFragment = null;
     }
 
     @Override
