@@ -96,7 +96,9 @@ public class BaseVisibilityFragment extends Fragment implements View.OnAttachSta
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        checkVisibility(hidden);
+        // hidden 表示是否是隐藏的，后续 checkVisibility 里面的 mVisible 表示是否可见
+        // 所以这两个应该是相反的
+        checkVisibility(!hidden);
     }
 
     /**
